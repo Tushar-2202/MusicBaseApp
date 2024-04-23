@@ -6,7 +6,7 @@ import {language} from '../locales';
 export const logout = createAction('LOGOUT');
 
 interface InitialState {
-  user: object;
+  user: object | null;
   token: string;
   credential: any;
   languageValue: object;
@@ -14,7 +14,7 @@ interface InitialState {
 }
 /* Initial state for the application */
 const initialState: InitialState = {
-  user: {},
+  user: null,
   token: '',
   credential: null,
   languageValue: language.en,

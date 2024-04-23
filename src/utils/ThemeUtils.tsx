@@ -74,13 +74,13 @@ const responsiveHeight = (basicHeight: number): number => {
   return basicHeight + basicHeight * 0.25;
 };
 
-export const circleStyle = {
+const circleStyle = {
   height: responsiveHeight(70),
   width: responsiveHeight(70),
   borderRadius: responsiveHeight(35),
 };
 /* Add the font-names here as per project requirement */
-export const FontStyle = {
+const FontStyle = {
   bold: IS_IOS ? 'SFProDisplay-Bold' : 'Roboto-Bold',
   medium: IS_IOS ? 'SFProDisplay-Medium' : 'Roboto-Medium',
   regular: IS_IOS ? 'SFProDisplay-Regular' : 'Roboto-Regular',

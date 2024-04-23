@@ -70,7 +70,7 @@ export class APIRequest {
             break;
           case METHOD_POST:
           default:
-            console.log('----------------', this.url);
+            console.log('--------------------', this.url);
             axiosInstance
               .post(this.url, this.params, this.config)
               .then(response => this.onAPIResponse(response))

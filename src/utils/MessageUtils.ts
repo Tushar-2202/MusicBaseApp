@@ -100,7 +100,7 @@ const Errors = {
     questionTitleEmojiErr: 'Cannot add emojis in the title',
     postBlankErr: 'Please add either photos or text',
     profilePicBlank: 'Please add a profile picture',
-    userNotFoundErr: 'Sorry, we can’t find this email address',
+    userNotFoundErr: 'Sorry, we can\’t find this email address',
     questionTagsBlank: 'Please add tags',
 
     mailAppConfigError: 'Mail app is not configured on this device',

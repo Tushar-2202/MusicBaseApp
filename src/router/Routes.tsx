@@ -5,8 +5,9 @@ const Routes = {
   Splash: 'Splash',
   /*  Non-Authenticated Routes    */
   Login: 'Login',
+  SignUp: 'SignUp',
   /*  Authenticated Routes    */
   Home: 'Home',
-  Profile: 'Profile',
 } as const;
+
 export default Routes;

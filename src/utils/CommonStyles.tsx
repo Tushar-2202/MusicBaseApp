@@ -3,7 +3,7 @@ import {Color} from './Color';
 
 const Style = StyleSheet.create({
     container: {
-        backgroundColor: Color.WHITE,
+        backgroundColor: Color.PRIMARY,
         flex: 1,
     },
     content_center: {
@@ -19,7 +19,7 @@ const Style = StyleSheet.create({
         flex: 1,
     },
     master_full_flex: {
-        backgroundColor: Color.WHITE,
+        backgroundColor: Color.PRIMARY,
         flex: 1,
     },
 });

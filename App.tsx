@@ -1,10 +1,3 @@
-/**
- * Created using React-Native Base
- * https://webmobtech.com
- *
- * @format
- * @flow strict-local
- */
 import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
 import {StatusBar, BackHandler} from 'react-native';
@@ -19,6 +12,8 @@ import {Toast} from 'src/component';
 import {Color} from 'src/utils';
 import RootNavigator from 'src/router';
 import {persistor, store} from 'src/reduxToolkit/store';
+import TrackPlayer, {Capability} from 'react-native-track-player';
+import {songsList} from 'src/utils/MusicData';
 
 const MyAppTheme = {
   ...DefaultTheme,
@@ -37,13 +32,42 @@ const App: React.FC = () => {
     if (JailMonkey.isJailBroken()) {
       BackHandler.exitApp();
     }
+    setupPlayer();
   }, []);
+
+  const setupPlayer = async () => {
+    try {
+      await TrackPlayer.setupPlayer();
+      await TrackPlayer.updateOptions({
+        // Media controls capabilities
+        capabilities: [
+          Capability.Play,
+          Capability.Pause,
+          Capability.SkipToNext,
+          Capability.SkipToPrevious,
+          Capability.Stop,
+        ],
+
+        // Capabilities that will show up when the notification is in the compact form on Android
+        compactCapabilities: [Capability.Play, Capability.Pause],
+
+        // Icons for the notification on Android (if you don't like the default ones)
+      });
+      await TrackPlayer.add(songsList);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
-          <StatusBar barStyle="default" backgroundColor={Color.PRIMARY_DARK} />
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor={Color.TRANSPARENT}
+            translucent
+          />
           <NavigationContainer theme={MyAppTheme}>
             <RootNavigator />
           </NavigationContainer>
